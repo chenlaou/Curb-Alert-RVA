@@ -10,11 +10,11 @@ export default {
     return axios.get("/api/products/" + id);
   },
   // Deletes the product with the given id
-  deleteProducts: function(id) {
+  deleteProduct: function(id) {
     return axios.delete("/api/products/" + id);
   },
   // Saves a product to the database
-  saveProducts: function(productData) {
+  createProduct: function(productData) {
     return axios.post("/api/products", productData);
   }
 };

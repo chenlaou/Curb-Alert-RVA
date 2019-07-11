@@ -10,6 +10,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 class Products extends Component {
   state = {
     products: [],
+    name: "",
     zipCode: "",
     phoneNumber: "",
     description: ""
@@ -24,6 +25,7 @@ class Products extends Component {
       .then(res =>
         this.setState({
           products: res.data,
+          name: "",
           zipCode: "",
           phoneNumber: "",
           description: ""
@@ -32,8 +34,8 @@ class Products extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteProducts = id => {
-    API.deleteProducts(id)
+  deleteProduct = id => {
+    API.deleteProduct(id)
       .then(res => this.loadProducts())
       .catch(err => console.log(err));
   };
@@ -47,8 +49,9 @@ class Products extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.zipCode && this.state.phoneNumber) {
-      API.saveProducts({
+    if (this.state.name && this.state.zipCode && this.state.phoneNumber) {
+      API.createProduct({
+        name: this.state.name,
         zipCode: this.state.zipCode,
         phoneNumber: this.state.phoneNumber,
         description: this.state.description
@@ -67,6 +70,12 @@ class Products extends Component {
               <h1>Submit a New Product</h1>
             </Jumbotron>
             <form>
+              <Input
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="Product Name (required)"
+              />
               <Input
                 value={this.state.zipCode}
                 onChange={this.handleInputChange}
@@ -99,15 +108,16 @@ class Products extends Component {
             </Jumbotron>
             {this.state.products.length ? (
               <List>
-                {this.state.products.map(products => (
-                  <ListItem key={products._id}>
-                    <Link to={"/products/" + products._id}>
+                {this.state.products.map(product => (
+                  <ListItem key={product._id}>
+                    <Link to={"/products/" + product._id}>
                       <strong>
-                        {products.zipCode} by {products.phoneNumber}
+                        {product.name} : {product.zipCode} ,{" "}
+                        {product.phoneNumber}
                       </strong>
                     </Link>
                     <DeleteBtn
-                      onClick={() => this.deleteProducts(products._id)}
+                      onClick={() => this.deleteProduct(product._id)}
                     />
                   </ListItem>
                 ))}
