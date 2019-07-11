@@ -11,7 +11,7 @@ class Detail extends Component {
   // When this component mounts, grab the product with the _id of this.props.match.params.id
   // e.g. localhost:3000 products/599dcb67f0f16317844583fc
   componentDidMount() {
-    API.getProducts(this.props.match.params.id)
+    API.getProduct(this.props.match.params.id)
       .then(res => this.setState({ product: res.data }))
       .catch(err => console.log(err));
   }
@@ -22,17 +22,15 @@ class Detail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>
-                {this.state.product.title} by {this.state.product.author}
-              </h1>
+              <h1>{this.state.product.name}</h1>
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Synopsis</h1>
-              <p>{this.state.product.synopsis}</p>
+              <h1>Description</h1>
+              <p>{this.state.product.description}</p>
             </article>
           </Col>
         </Row>
