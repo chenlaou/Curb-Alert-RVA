@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
   name: { type: String, required: true },
-  zipCode: { type: String, required: true },
+  neighborhood: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   description: { type: String, required: true }
 });
