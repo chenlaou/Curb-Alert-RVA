@@ -5,13 +5,13 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 
 class Products extends Component {
   state = {
     products: [],
     name: "",
-    zipCode: "",
+    neighborhood: "",
     phoneNumber: "",
     description: ""
   };
@@ -49,10 +49,10 @@ class Products extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.name && this.state.zipCode && this.state.phoneNumber) {
+    if (this.state.name && this.state.neighborhood && this.state.phoneNumber) {
       API.createProduct({
         name: this.state.name,
-        zipCode: this.state.zipCode,
+        neighborhood: this.state.neighborhood,
         phoneNumber: this.state.phoneNumber,
         description: this.state.description
       })
@@ -77,10 +77,10 @@ class Products extends Component {
                 placeholder="Product Name (required)"
               />
               <Input
-                value={this.state.zipCode}
+                value={this.state.neighborhood}
                 onChange={this.handleInputChange}
-                name="zipCode"
-                placeholder="Zip Code (required)"
+                name="neighborhood"
+                placeholder="Neighborhood (ex: Church Hill, The Fan, etc.)"
               />
               <Input
                 value={this.state.phoneNumber}
@@ -88,14 +88,14 @@ class Products extends Component {
                 name="phoneNumber"
                 placeholder="Phone Number (required)"
               />
-              <TextArea
+              <Input
                 value={this.state.description}
                 onChange={this.handleInputChange}
                 name="description"
-                placeholder="Description (Optional)"
+                placeholder="Description (Required)"
               />
               <FormBtn
-                disabled={!(this.state.phoneNumber && this.state.zipCode)}
+                disabled={!(this.state.phoneNumber && this.state.neighborhood)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Product
@@ -111,10 +111,8 @@ class Products extends Component {
                 {this.state.products.map(product => (
                   <ListItem key={product._id}>
                     <Link to={"/products/" + product._id}>
-                      <strong>
-                        {product.name} : {product.zipCode} ,{" "}
-                        {product.phoneNumber}
-                      </strong>
+                      <strong>{product.name} </strong>: {product.description}
+                      <br /> <em>Location: {product.neighborhood}</em>
                     </Link>
                     <DeleteBtn
                       onClick={() => this.deleteProduct(product._id)}

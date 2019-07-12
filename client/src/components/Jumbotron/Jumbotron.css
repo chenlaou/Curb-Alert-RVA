@@ -1,0 +1,15 @@
+.landing.jumbotron {
+  height: 628px;
+}
+
+h1 {
+  float: right;
+  color: black;
+  font-size: 5rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+mask {
+  background: white;
+  opacity: 0.5;
+}
