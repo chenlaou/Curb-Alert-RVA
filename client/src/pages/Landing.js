@@ -8,7 +8,7 @@ class Landing extends Component {
         <Jumbotron>
           <div className="mask">
             <h1>
-              CurbAlertRVA
+              CurbAlert RVA
             </h1>
           </div>
         </Jumbotron>
