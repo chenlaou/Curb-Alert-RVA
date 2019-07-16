@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import "./Products.css";
 
 class Products extends Component {
   state = {
@@ -66,9 +67,9 @@ class Products extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
+            <div className="submitAndProducts">
               <h1>Submit a New Product</h1>
-            </Jumbotron>
+            </div>
             <form>
               <Input
                 value={this.state.name}
@@ -103,9 +104,9 @@ class Products extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <Jumbotron>
+            <div className="submitAndProducts">
               <h1>Product List</h1>
-            </Jumbotron>
+            </div>
             {this.state.products.length ? (
               <List>
                 {this.state.products.map(product => (
