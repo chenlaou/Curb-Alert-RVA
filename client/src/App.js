@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Landing from "./pages/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import NoMatch from "./pages/NoMatch";
 import Profile from "./components/Profile";
 
 function App() {
@@ -15,14 +16,15 @@ function App() {
         <div>
           <Nav />
           <Route exact path="/" component={Landing} />
-          <Switch>
-            {/* <Route exact path="/" component={Products} /> */}
+          <div className="container">
+        
             <Route exact path="/products" component={Products} />
             <Route exact path="/products/:id" component={Detail} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
-          </Switch>
+            {/* <Route component={NoMatch} /> */}
+          </div>
         </div>
       </div>
     </Router>

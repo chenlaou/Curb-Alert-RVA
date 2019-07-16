@@ -3,9 +3,11 @@ const users = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
-
+const cors = require('cors')
 
 process.env.SECRET_KEY = 'secret'
+
+users.use(cors())
 
 users.post('/register', (req, res) => {
   const today = new Date()
