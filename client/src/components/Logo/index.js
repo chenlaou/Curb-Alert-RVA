@@ -1,7 +1,7 @@
 import React from "react";
-import "./Jumbotron.css";
+import "./logo.css";
 
-function Jumbotron({ children, className = "" }) {
+function Logo({ children, className = "" }) {
   return <div className={`jumbotron landing ${className}`}>{children}</div>;
 }
 
