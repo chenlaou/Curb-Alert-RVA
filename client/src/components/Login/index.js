@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { login } from '../UserFunctions/index.js'
+import { login } from '../UserFunctions'
+
+
+
 
 class Login extends Component {
   constructor() {
@@ -32,6 +35,11 @@ class Login extends Component {
     })
   }
 
+
+
+
+
+  
   render() {
     return (
       <div className="container">
@@ -74,5 +82,7 @@ class Login extends Component {
     )
   }
 }
+
+
 
 export default Login

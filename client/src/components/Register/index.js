@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { register } from '../UserFunctions'
+import { register } from '../UserFunctions/index'
 
 class Register extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class Register extends Component {
     }
 
     register(newUser).then(res => {
-      this.props.history.push(`/login`)
+      this.props.history.push(`/Login`)
     })
   }
 
