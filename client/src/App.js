@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./pages/NoMatch";
 import Profile from "./components/Profile";
+import logo from "./images/logo.png";
 
 function App() {
   return (
@@ -15,9 +16,8 @@ function App() {
       <div className="App">
         <div>
           <Nav />
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Landing}  />
           <div className="container">
-        
             <Route exact path="/products" component={Products} />
             <Route exact path="/products/:id" component={Detail} />
             <Route exact path="/register" component={Register} />
