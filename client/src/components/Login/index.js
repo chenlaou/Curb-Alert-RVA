@@ -1,45 +1,37 @@
-import React, { Component } from 'react'
-import { login } from '../UserFunctions'
-
-
-
+import React, { Component } from "react";
+import { login } from "../UserFunctions";
 
 class Login extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       errors: {}
-    }
+    };
 
-    this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   }
   onSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const user = {
       email: this.state.email,
       password: this.state.password
-    }
+    };
 
     login(user).then(res => {
       if (res) {
-        this.props.history.push(`/products`)
+        this.props.history.push(`/products`);
       }
-    })
+    });
   }
 
-
-
-
-
-  
   render() {
     return (
       <div className="container">
@@ -79,10 +71,8 @@ class Login extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-
-
-export default Login
+export default Login;

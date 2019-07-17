@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../../images/logo.png"
+import logo from "../../images/logo.png";
 
 class Landing extends Component {
   logOut(e) {
@@ -11,9 +11,8 @@ class Landing extends Component {
 
   render() {
     const loginRegLink = (
-      
       <ul className="navbar-nav">
-        <li className="nav-item" >
+        <li className="nav-item">
           <Link to="/login" className="nav-link">
             Login
           </Link>
@@ -64,14 +63,22 @@ class Landing extends Component {
           className="collapse navbar-collapse justify-content-md-center"
           id="navbarsExample10"
         >
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
-              <img src={logo} width="300" height="auto" alt="CodingTheSmartWay.com" />
-            </a>
-            <br></br>
-            <br></br>
+          <a
+            className="navbar-brand"
+            href="https://codingthesmartway.com"
+            target="_blank"
+          >
+            <img
+              src={logo}
+              width="300"
+              height="auto"
+              alt="CodingTheSmartWay.com"
+            />
+          </a>
+          <br />
+          <br />
           <ul className="navbar-nav">
             <li className="nav-item">
-          
               <Link to="/" className="nav-link">
                 Home
               </Link>
