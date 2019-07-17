@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
+
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -67,9 +67,7 @@ class Products extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <div className="submitAndProducts">
-              <h1>Submit a New Product</h1>
-            </div>
+            <div className="submitAndProducts">Submit a New Product</div>
             <form>
               <Input
                 value={this.state.name}
@@ -104,9 +102,7 @@ class Products extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <div className="submitAndProducts">
-              <h1>Product List</h1>
-            </div>
+            <div className="submitAndProducts">Product List</div>
             {this.state.products.length ? (
               <List>
                 {this.state.products.map(product => (
@@ -122,7 +118,9 @@ class Products extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3>
+                <em>No Results to Display</em>
+              </h3>
             )}
           </Col>
         </Row>
