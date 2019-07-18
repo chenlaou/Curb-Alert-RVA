@@ -65,14 +65,14 @@ class Landing extends Component {
         >
           <a
             className="navbar-brand"
-            href="https://codingthesmartway.com"
-            target="_blank"
+            href="/"
+            target=""
           >
             <img
               src={logo}
               width="300"
               height="auto"
-              alt="CodingTheSmartWay.com"
+              alt=""
             />
           </a>
           <br />

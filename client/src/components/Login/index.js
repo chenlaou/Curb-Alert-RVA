@@ -1,75 +1,62 @@
-import React, { Component } from "react";
-import { login } from "../UserFunctions";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 class Login extends Component {
+
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
-      errors: {}
+      username: '',
+      password: '',
+      message: ''
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange = (e) => {
+    const state = this.state
+    state[e.target.name] = e.target.value;
+    this.setState(state);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
 
-    const user = {
-      email: this.state.email,
-      password: this.state.password
-    };
+    const { username, password } = this.state;
 
-    login(user).then(res => {
-      if (res) {
-        this.props.history.push(`/products`);
-      }
-    });
+    axios.post('/api/auth/login', { username, password })
+      .then((result) => {
+        localStorage.setItem('jwtToken', result.data.token);
+        this.setState({ message: '' });
+        this.props.history.push('/products')
+      })
+      .catch((error) => {
+        if(error.response.status === 401) {
+          this.setState({ message: 'Login failed. Username or password not match' });
+        }
+      });
   }
 
   render() {
+    const { username, password, message } = this.state;
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-              <div className="form-group">
-                <label htmlFor="email">Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder=""
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder=""
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Sign in
-              </button>
-            </form>
-          </div>
-        </div>
+        <form className="form-signin" onSubmit={this.onSubmit}>
+          {message !== '' &&
+            <div className="alert alert-warning alert-dismissible" role="alert">
+              { message }
+            </div>
+          }
+          <h2 className="form-signin-heading">Please sign in</h2>
+          <label for="inputEmail" className="sr-only">Email address</label>
+          <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
+          <label for="inputPassword" className="sr-only">Password</label>
+          <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          <p>
+            Not a member? <Link to="/register"><span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Register here</Link>
+          </p>
+        </form>
       </div>
     );
   }
