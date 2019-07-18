@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route,} from "react-router-dom";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Nav from "./components/Nav";
 import Landing from "./pages/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import NoMatch from "./pages/NoMatch";
+
 import Profile from "./components/Profile";
-import logo from "./images/logo.png";
+
 
 function App() {
   return (

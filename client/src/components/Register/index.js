@@ -1,98 +1,48 @@
-import React, { Component } from "react";
-import { register } from "../UserFunctions/index";
+import React, { Component } from 'react';
+import axios from 'axios';
+import '../Login/Login.css';
 
-class Register extends Component {
+class Create extends Component {
+
   constructor() {
     super();
     this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
-      errors: {}
+      username: '',
+      password: ''
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange = (e) => {
+    const state = this.state
+    state[e.target.name] = e.target.value;
+    this.setState(state);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
 
-    const newUser = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      password: this.state.password
-    };
+    const { username, password } = this.state;
 
-    register(newUser).then(res => {
-      this.props.history.push(`/Login`);
-    });
+    axios.post('/api/auth/register', { username, password })
+      .then((result) => {
+        this.props.history.push("/login")
+      });
   }
 
   render() {
+    const { username, password } = this.state;
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="first_name"
-                  placeholder="First name"
-                  value={this.state.first_name}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="last_name"
-                  placeholder="Last Name"
-                  value={this.state.last_name}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder="Email Address"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Register!
-              </button>
-            </form>
-          </div>
-        </div>
+        <form className="form-signin" onSubmit={this.onSubmit}>
+          <h2 className="form-signin-heading">Register</h2>
+          <label for="inputEmail" className="sr-only">Email address</label>
+          <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
+          <label for="inputPassword" className="sr-only">Password</label>
+          <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        </form>
       </div>
     );
   }
 }
 
-export default Register;
+export default Create;
