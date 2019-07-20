@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route,} from "react-router-dom";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
@@ -6,12 +6,12 @@ import Nav from "./components/Nav";
 import Landing from "./pages/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
-
 import Profile from "./components/Profile";
 
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return (
     <Router>
       <div className="App">
         <div>
@@ -28,7 +28,8 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  )
+}
 }
 
 export default App;
