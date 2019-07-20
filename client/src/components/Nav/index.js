@@ -1,26 +1,25 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+<<<<<<< HEAD
 import logo from "../../images/logo.png";
 import "./Nav.css";
+=======
+import logo from "../../images/logo.png"
+>>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
 
 class Landing extends Component {
   logOut(e) {
     e.preventDefault();
-    localStorage.removeItem("usertoken");
+    localStorage.removeItem("jwtToken");
     this.props.history.push(`/`);
   }
 
   render() {
     const loginRegLink = (
-      <ul className="navbar-nav">
+      <ul className="navbar-nav navbar-right">
         <li className="nav-item">
           <Link to="/login" className="nav-link">
             Login
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Register
           </Link>
         </li>
       </ul>
@@ -42,7 +41,12 @@ class Landing extends Component {
     );
 
     return (
+      
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                                <a className="navbar-brand" href="/">
+                            <img src= {logo} width="250" height="auto" alt=""/>
+                        </a>
+        
         <button
           className="navbar-toggler"
           type="button"
@@ -55,6 +59,7 @@ class Landing extends Component {
           <span className="navbar-toggler-icon" />
         </button>
 
+<<<<<<< HEAD
         <div
           className="collapse navbar-collapse justify-content-md-center"
           id="navbarsExample10"
@@ -63,6 +68,11 @@ class Landing extends Component {
             <img className="logo" src={logo} alt="" />
           </a>
 
+=======
+        
+
+        <div className="collapse navbar-collapse justify-content-md-left" id="navbarsExample10">
+>>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -70,7 +80,11 @@ class Landing extends Component {
               </Link>
             </li>
           </ul>
-          {localStorage.usertoken ? userLink : loginRegLink}
+
+
+          {localStorage.jwtToken ? userLink : loginRegLink}
+
+          
         </div>
       </nav>
     );

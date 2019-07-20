@@ -32,7 +32,31 @@ class Detail extends Component {
             Call: {this.state.product.phoneNumber}
           </p>
         </div>
+<<<<<<< HEAD
       </div>
+=======
+        {/* <Row> */}
+        {/* <Col size="md-12">
+            <Jumbotron>
+              <h1>{this.state.product.name}</h1>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-10 md-offset-1">
+            <article>
+              <h1>Description</h1>
+              <p>{this.state.product.description}</p>
+            </article>
+          </Col>
+        </Row> */}
+        <Row>
+          <Col size="md-2">
+            <Link to="/products">← Products</Link>
+          </Col>
+        </Row>
+      </Container>
+>>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
     );
   }
 }
