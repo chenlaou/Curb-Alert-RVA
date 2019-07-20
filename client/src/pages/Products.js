@@ -102,7 +102,7 @@ class Products extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <div className="submitAndProducts">Product List</div>
+            <div className="submitAndProducts">Free Product List</div>
             {this.state.products.length ? (
               <List>
                 {this.state.products.map(product => (
