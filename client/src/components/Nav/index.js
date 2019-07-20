@@ -1,25 +1,20 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.png"
 
 class Landing extends Component {
   logOut(e) {
     e.preventDefault();
-    localStorage.removeItem("usertoken");
+    localStorage.removeItem("jwtToken");
     this.props.history.push(`/`);
   }
 
   render() {
     const loginRegLink = (
-      <ul className="navbar-nav">
+      <ul className="navbar-nav navbar-right">
         <li className="nav-item">
           <Link to="/login" className="nav-link">
             Login
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Register
           </Link>
         </li>
       </ul>
@@ -27,11 +22,6 @@ class Landing extends Component {
 
     const userLink = (
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/profile" className="nav-link">
-            User
-          </Link>
-        </li>
         <li className="nav-item">
           <Link to="/products" className="nav-link">
             Products
@@ -46,7 +36,12 @@ class Landing extends Component {
     );
 
     return (
+      
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                                <a className="navbar-brand" href="/">
+                            <img src= {logo} width="250" height="auto" alt=""/>
+                        </a>
+        
         <button
           className="navbar-toggler"
           type="button"
@@ -59,24 +54,9 @@ class Landing extends Component {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div
-          className="collapse navbar-collapse justify-content-md-center"
-          id="navbarsExample10"
-        >
-          <a
-            className="navbar-brand"
-            href="/"
-            target=""
-          >
-            <img
-              src={logo}
-              width="300"
-              height="auto"
-              alt=""
-            />
-          </a>
-          <br />
-          <br />
+        
+
+        <div className="collapse navbar-collapse justify-content-md-left" id="navbarsExample10">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -84,7 +64,11 @@ class Landing extends Component {
               </Link>
             </li>
           </ul>
-          {localStorage.usertoken ? userLink : loginRegLink}
+
+
+          {localStorage.jwtToken ? userLink : loginRegLink}
+
+          
         </div>
       </nav>
     );
