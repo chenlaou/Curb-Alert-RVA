@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer"
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             {/* <Route component={NoMatch} /> */}
           </div>
         </div>
+        <Footer />
       </div>
     </Router>
   )
