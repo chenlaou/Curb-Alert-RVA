@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-<<<<<<< HEAD
-import logo from "../../images/logo.png";
-import "./Nav.css";
-=======
 import logo from "../../images/logo.png"
->>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
 
 class Landing extends Component {
   logOut(e) {
@@ -59,20 +54,9 @@ class Landing extends Component {
           <span className="navbar-toggler-icon" />
         </button>
 
-<<<<<<< HEAD
-        <div
-          className="collapse navbar-collapse justify-content-md-center"
-          id="navbarsExample10"
-        >
-          <a className="navbar-brand" href="/" target="">
-            <img className="logo" src={logo} alt="" />
-          </a>
-
-=======
         
 
         <div className="collapse navbar-collapse justify-content-md-left" id="navbarsExample10">
->>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
