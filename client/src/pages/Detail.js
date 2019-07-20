@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-
+import "./Detail.css"
 import API from "../utils/API";
 
 class Detail extends Component {
@@ -31,21 +31,6 @@ class Detail extends Component {
             </p>
           </div>
         </div>
-        {/* <Row> */}
-        {/* <Col size="md-12">
-            <Jumbotron>
-              <h1>{this.state.product.name}</h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Description</h1>
-              <p>{this.state.product.description}</p>
-            </article>
-          </Col>
-        </Row> */}
         <Row>
           <Col size="md-2">
             <Link to="/products">← Products</Link>
