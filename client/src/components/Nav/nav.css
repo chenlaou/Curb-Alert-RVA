@@ -1,0 +1,11 @@
+nav {
+  display: inline-flex;
+  align-items: left;
+  background-color: none;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-left: 0;
+}

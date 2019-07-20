@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Col, Row, Container } from "../components/Grid";
 
-import "./Detail.css";
 import API from "../utils/API";
 
 class Detail extends Component {
@@ -17,24 +18,19 @@ class Detail extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h1>{this.state.product.name}</h1>
-
-          <h2>{this.state.product.description}</h2>
-          <br />
-        </div>
-        <br />
-        <div>
-          <p>
-            Location: {this.state.product.neighborhood}
+      <Container fluid>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">{this.state.product.name}</h1>
+            <h5 class="lead">{this.state.product.description}</h5>
             <br />
-            Call: {this.state.product.phoneNumber}
-          </p>
+            <p>
+              Location: {this.state.product.neighborhood}
+              <br />
+              Call: {this.state.product.phoneNumber}
+            </p>
+          </div>
         </div>
-<<<<<<< HEAD
-      </div>
-=======
         {/* <Row> */}
         {/* <Col size="md-12">
             <Jumbotron>
@@ -56,7 +52,6 @@ class Detail extends Component {
           </Col>
         </Row>
       </Container>
->>>>>>> e37a6018fb5469ed84358f2e86aa502008ad7948
     );
   }
 }
