@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../../images/logo.png";
+import "./Nav.css";
 
 class Landing extends Component {
   logOut(e) {
@@ -27,11 +28,6 @@ class Landing extends Component {
 
     const userLink = (
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/profile" className="nav-link">
-            User
-          </Link>
-        </li>
         <li className="nav-item">
           <Link to="/products" className="nav-link">
             Products
@@ -63,20 +59,10 @@ class Landing extends Component {
           className="collapse navbar-collapse justify-content-md-center"
           id="navbarsExample10"
         >
-          <a
-            className="navbar-brand"
-            href="/"
-            target=""
-          >
-            <img
-              src={logo}
-              width="300"
-              height="auto"
-              alt=""
-            />
+          <a className="navbar-brand" href="/" target="">
+            <img className="logo" src={logo} alt="" />
           </a>
-          <br />
-          <br />
+
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
