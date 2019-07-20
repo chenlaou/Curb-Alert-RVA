@@ -48,7 +48,7 @@ class Detail extends Component {
         </Row> */}
         <Row>
           <Col size="md-2">
-            <Link to="/">← Products</Link>
+            <Link to="/products">← Products</Link>
           </Col>
         </Row>
       </Container>
