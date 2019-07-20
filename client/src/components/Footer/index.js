@@ -15,7 +15,7 @@ class Footer extends Component {
                 to="https://github.com/chenlaou/Curb-Alert-RVA"
                 className="nav-link"
               >
-              Curb Alert RVA | 2019 © 
+                CurbAlert RVA | 2019 ©
               </Link>
             </li>
           </ul>
