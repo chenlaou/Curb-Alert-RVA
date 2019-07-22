@@ -1,3 +1,15 @@
-Carousel {
-  background-color: red;
+.container {
+  margin-top: 40px;
+}
+
+h4, p {
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+  text-shadow: 0px 2px 3px darkslategray;
+  display: block;
+  font-weight: bold;
+}
+
+carousel.item {
+  box-shadow: 0px 2px 3px darkslategray;
 }

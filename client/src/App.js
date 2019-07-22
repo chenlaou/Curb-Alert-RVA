@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import withSplashScreen from "./components/Splashscreen";
+import LandingPageCarousel from "./components/LandingPageCarousel"
 
 class App extends Component {
   render() {
