@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import "./Detail.css"
+import "./Detail.css";
 import API from "../utils/API";
 
 class Detail extends Component {
@@ -18,22 +18,33 @@ class Detail extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">{this.state.product.name}</h1>
-            <h5 class="lead">{this.state.product.description}</h5>
+      <Container>
+        <div className="jumbotron">
+          <div className="container">
+            <h1 className="display-4">Free {this.state.product.name}</h1>
+            <div>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <h5 className="lead">
+                <em>{this.state.product.description}</em>
+              </h5>
+            </div>
             <br />
-            <p>
+            <h5>
               Location: {this.state.product.neighborhood}
               <br />
               Call: {this.state.product.phoneNumber}
-            </p>
+            </h5>
           </div>
         </div>
         <Row>
-          <Col size="md-2">
-            <Link to="/products">← Products</Link>
+          <Col size="md-6">
+            <Link className="arrow" to="/products">
+              ← Products
+            </Link>
           </Col>
         </Row>
       </Container>
