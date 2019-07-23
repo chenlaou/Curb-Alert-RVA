@@ -1,12 +1,13 @@
 .jumbotron {
   background-color: aliceblue;
-  width: 70%;
+  width: 50%;
+  height: 40%;
   margin-top: 15px;
-  margin-left: 150px;
-}
 
-.arrow {
-  margin-left: 150px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 2px solid lightgray;
+  text-align: center;
 }
 
 .lead {
@@ -15,4 +16,7 @@
 
 h1 {
   float: left;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
 }

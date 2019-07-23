@@ -38,15 +38,13 @@ class Detail extends Component {
               <br />
               Call: {this.state.product.phoneNumber}
             </h5>
-          </div>
-        </div>
-        <Row>
-          <Col size="md-6">
+
+            <br />
             <Link className="arrow" to="/products">
               ← Products
             </Link>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </Container>
     );
   }
