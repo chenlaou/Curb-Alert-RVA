@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const db = require("../models");
+const MongoClient = require('mongodb').MongoClient;
+// const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
 
-mongoose.connect(
+
+MongoClient.connect(
   process.env.MONGODB_URI ||
   "mongodb://localhost/CurbUser"
 );

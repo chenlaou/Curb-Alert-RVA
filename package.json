@@ -1,6 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
+  "homepage" : "https://calm-beach-14066.herokuapp.com/",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -11,7 +12,7 @@
     "seed": "node scripts/userDB.js && node scripts/productDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build && node scripts/userDB.js && node scripts/productDB.js"
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +37,7 @@
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
-    "mongoose": "^5.3.16",
+    "mongoose": "^5.6.6",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "prop-types": "^15.7.2",
