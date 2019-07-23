@@ -1,6 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
+  "homepage" : "https://ancient-taiga-65985.herokuapp.com/",
   "description": "",
   "main": "server.js",
   "scripts": {
