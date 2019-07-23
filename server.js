@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(
@@ -19,10 +24,7 @@ app.use(
   })
 );
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+
 
 // Add routes, both API and view
 app.use(routes);
@@ -43,10 +45,16 @@ app.post("/submit", function(req, res) {
 });
 
 // Connect to the Mongo DB
-const mongoURI = "mongodb://localhost:27017/CurbUser";
+// const mongoURI = "mongodb://localhost:27017/CurbUser";
 
-mongoose
-  .connect(mongoURI, {useNewUrlParser: true })
+// mongoose
+//   .connect(mongoURI, {useNewUrlParser: true })
+//   .then(() => console.log("MongoDB Connected"))
+//   .catch(err => console.log(err));
+
+  mongoose.set('useCreateIndex', true);
+
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CurbUser")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
