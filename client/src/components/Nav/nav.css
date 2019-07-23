@@ -1,6 +1,7 @@
 nav {
   display: inline-flex;
   align-items: left;
+  background-color: none;
 }
 
 .logo {
