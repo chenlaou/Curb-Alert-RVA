@@ -46,7 +46,7 @@ app.post("/submit", function(req, res) {
 const mongoURI = "mongodb://localhost:27017/CurbUser";
 
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true })
+  .connect(mongoURI, {useNewUrlParser: true })
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
